@@ -14,11 +14,11 @@ const routes: Routes = [{
     { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
     { path: 'customizesevice', loadChildren: () => import('./customizeservice/customizeservice.module').then(m => m.CustomizeserviceModule) },
     { path: 'sustainability', loadChildren: () => import('./sustainability/sustainability.module').then(m => m.SustainabilityModule) },
-
+    { path: 'aboutus', loadChildren: () => import('./aboutus/aboutus.module').then(m => m.AboutusModule) },
+    { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.SupportModule) },
   ]
 },
-  { path: 'aboutus', loadChildren: () => import('./aboutus/aboutus.module').then(m => m.AboutusModule) },
-  { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.SupportModule) },
+
 
 
 
