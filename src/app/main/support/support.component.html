@@ -22,6 +22,8 @@
                       <h2>Be part of the change, contact us here!
                       </h2>
                   </div>
+
+
                   <div class="row">
                       <div class="col-lg-4 col-md-6 col-sm-12">
                           <div class="information-item-two info-one mb-30 wow fadeInDown">
@@ -63,6 +65,8 @@
                           </div>
                       </div>
                   </div>
+
+
                   <div class="row">
                       <div class="col-lg-8">
                          <p>Join the Green Revolution! Ready to transform your world with eco-friendly choices? Connect with us and discover how easy and impactful going green can be!
@@ -94,18 +98,23 @@
                               Send Us Message</h2>
                       </div>
                       <div class="contact-form">
-                          <form>
+                          <form  [formGroup]="myForm" (ngSubmit)="onSubmit()">
                               <div class="form_group">
-                                  <input type="text" class="form_control" placeholder="Full Name" name="name" required>
+                                  <input type="text" class="form_control" formControlName="name"
+                                  placeholder="Full Name" name="name" required
+                                  >
+                                  <small class="text-danger" [class.d-none]="myForm.get('name')?.valid || myForm.get('name')?.untouched">Name Is Required</small>
                               </div>
                               <div class="form_group">
-                                  <input type="email" class="form_control" placeholder="Email Address" name="email" required>
+                                  <input type="email" class="form_control" formControlName="email" placeholder="Email Address" name="email" required>
+                                  <small class="text-danger" [class.d-none]="myForm.get('email')?.valid || myForm.get('email')?.untouched">Email Is Required</small>
                               </div>
                               <div class="form_group">
-                                  <textarea class="form_control" placeholder="Write Message" name="message"></textarea>
+                                  <textarea class="form_control"  formControlName="msg" placeholder="Write Message" name="message"></textarea>
                               </div>
                               <div class="form_group">
-                                  <button class="main-btn btn-yellow">Send Us Message</button>
+
+                                  <button type="submit" class="main-btn btn-yellow" [disabled]="myForm.invalid">Send Us Message</button>
                               </div>
                           </form>
                       </div>
